@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Sass Colour Function Calculator</title>
+		<title>Sass Color Function Calculator</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="styles/main.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 		<header>
 			<h1>
-				Sass Colour Function Calculator
+				Sass Color Function Calculator
 			</h1>
 
 			<h2>A tool for calculating the Sass colour function required to get from one colour to another.</h2>
@@ -23,14 +23,14 @@
 			<section class="colours-container">
 				<div style="background:{{scfc.colorA}}">
 					<div>
-						<label>Original Colour</label>
+						<label>Original Color</label>
 						<input type="text" ng-model="scfc.colorA" ng-model-options="{ getterSetter: true }">
 					</div>
 				</div>
 
 				<div style="background:{{scfc.colorB}};">
 					<div>
-						<label>Target Colour</label>
+						<label>Target Color</label>
 						<input type="text" ng-model="scfc.colorB" ng-model-options="{ getterSetter: true }">
 					</div>
 				</div>
@@ -42,6 +42,21 @@
 				</button>
 			</div>
 
+			<section class="colours-container evaluator-section" style="margin-top: 2em;">
+				<div style="background:{{scfc.customBase}}">
+					<div>
+						<label>Apply to Color</label>
+						<input type="text" ng-model="scfc.customBase" ng-model-options="{ getterSetter: true }">
+					</div>
+				</div>
+
+				<div style="background:{{scfc.getEvaluatedHex()}};">
+					<div>
+						<label>Calculated Color</label>
+						<input type="text" ng-value="scfc.getEvaluatedHex()" readonly style="color: #888;">
+					</div>
+				</div>
+			</section>
 			<div class="result-container">
 				<pre class="result" ng-bind="scfc.adjustmentString()" onfocus="this.select()"></pre>
 			</div>
